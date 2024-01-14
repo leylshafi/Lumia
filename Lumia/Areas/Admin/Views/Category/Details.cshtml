@@ -1,0 +1,14 @@
+﻿@model Category
+<div class="container">
+	<h1>@Model.Name</h1>
+	@foreach (Portfolio portfolio in Model.Portfolios)
+	{
+		<div class="card" style="width: 18rem;">
+			<img src="~/assets/img/@portfolio.ImageUrl" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h5 class="card-title">@portfolio.Name</h5>
+				<p class="card-text">@portfolio.Description</p>
+			</div>
+		</div>
+	}		
+</div>
