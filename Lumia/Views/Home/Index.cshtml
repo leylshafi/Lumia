@@ -1,4 +1,5 @@
-﻿<!-- ======= Hero Section ======= -->
+﻿@model HomeVM
+<!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="container text-center text-md-left" data-aos="fade-up">
         <h1>Welcome to <span>Lumia</span></h1>
@@ -193,48 +194,17 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6">
-                    <div class="icon-box">
-                        <i class="bi bi-briefcase"></i>
-                        <h4><a href="#">Lorem Ipsum</a></h4>
-                        <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                @foreach (Service service in Model.Services)
+                {
+                    <div class="col-md-6 mt-4">
+                        <div class="icon-box">
+                            <img src="~/assets/img/@service.ImageUrl" style="width:70px;"/>
+                            <h4><a href="#">@service.Name</a></h4>
+                            <p>@service.Description</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 mt-4 mt-lg-0">
-                    <div class="icon-box">
-                        <i class="bi bi-card-checklist"></i>
-                        <h4><a href="#">Dolor Sitema</a></h4>
-                        <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mt-4">
-                    <div class="icon-box">
-                        <i class="bi bi-bar-chart"></i>
-                        <h4><a href="#">Sed ut perspiciatis</a></h4>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mt-4">
-                    <div class="icon-box">
-                        <i class="bi bi-binoculars"></i>
-                        <h4><a href="#">Nemo Enim</a></h4>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mt-4">
-                    <div class="icon-box">
-                        <i class="bi bi-brightness-high"></i>
-                        <h4><a href="#">Magni Dolore</a></h4>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mt-4">
-                    <div class="icon-box">
-                        <i class="bi bi-calendar4-week"></i>
-                        <h4><a href="#">Eiusmod Tempor</a></h4>
-                        <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-                    </div>
-                </div>
+                }    
+                
             </div>
 
         </div>
@@ -248,153 +218,25 @@
                 <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit</p>
             </div>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul id="portfolio-flters">
-                        <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-app">App</li>
-                        <li data-filter=".filter-card">Card</li>
-                        <li data-filter=".filter-web">Web</li>
-                    </ul>
-                </div>
-            </div>
-
             <div class="row portfolio-container">
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="~/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                            <a href="~/assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="link-preview portfolio-lightbox" title="Preview"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-                        </figure>
+                @foreach (Portfolio portfolio in Model.Portfolios)
+                {
+                    <div class="col-lg-4 col-md-6 portfolio-item wow fadeInUp">
+                        <div class="portfolio-wrap">
+                            <figure>
+                                <img src="~/assets/img/@portfolio.ImageUrl" class="img-fluid" alt="">
+                                <a href="~/assets/img/@portfolio.ImageUrl" data-gallery="portfolioGallery" class="link-preview portfolio-lightbox" title="Preview"><i class="bx bx-plus"></i></a>
+                                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
+                            </figure>
 
-                        <div class="portfolio-info">
-                            <h4><a href="portfolio-details.html">App 1</a></h4>
-                            <p>App</p>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html">@portfolio.Name</a></h4>
+                                <p>@portfolio.Description</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="~/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-                            <a href="~/assets/img/portfolio/portfolio-2.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="portfolio-details.html">Web 3</a></h4>
-                            <p>Web</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="~/assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-                            <a href="~/assets/img/portfolio/portfolio-3.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="portfolio-details.html">App 2</a></h4>
-                            <p>App</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="~/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-                            <a href="~/assets/img/portfolio/portfolio-4.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="portfolio-details.html">Card 2</a></h4>
-                            <p>Card</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="~/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-                            <a href="~/assets/img/portfolio/portfolio-5.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="portfolio-details.html">Web 2</a></h4>
-                            <p>Web</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="~/assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-                            <a href="~/assets/img/portfolio/portfolio-6.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="portfolio-details.html">App 3</a></h4>
-                            <p>App</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="~/assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-                            <a href="~/assets/img/portfolio/portfolio-7.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="portfolio-details.html">Card 1</a></h4>
-                            <p>Card</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="~/assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-                            <a href="~/assets/img/portfolio/portfolio-8.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="portfolio-details.html">Card 3</a></h4>
-                            <p>Card</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="~/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-                            <a href="~/assets/img/portfolio/portfolio-9.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4><a href="portfolio-details.html">Web 1</a></h4>
-                            <p>Web</p>
-                        </div>
-                    </div>
-                </div>
+                }    
 
             </div>
 
@@ -566,19 +408,19 @@
                             <div class="col-lg-4 info">
                                 <i class="bi bi-geo-alt"></i>
                                 <h4>Location:</h4>
-                                <p>A108 Adam Street<br>New York, NY 535022</p>
+                                <p>@Html.Raw(Model.Setting["Address"])</p>
                             </div>
 
                             <div class="col-lg-4 info mt-4 mt-lg-0">
                                 <i class="bi bi-envelope"></i>
                                 <h4>Email:</h4>
-                                <p>info@example.com<br>contact@example.com</p>
+                                <p>@Html.Raw(Model.Setting["Email"])<br>@Html.Raw(Model.Setting["Email"])</p>
                             </div>
 
                             <div class="col-lg-4 info mt-4 mt-lg-0">
                                 <i class="bi bi-phone"></i>
                                 <h4>Call:</h4>
-                                <p>+1 5589 55488 51<br>+1 5589 22475 14</p>
+                                <p>@Html.Raw(Model.Setting["Phone"])<br>@Html.Raw(Model.Setting["Phone"])</p>
                             </div>
                         </div>
                     </div>

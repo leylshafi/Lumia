@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using Lumia.Services;
+@inject LayoutService service
+@{
+    var vm = await service.GetSettings();
+    Dictionary<string, string> setting = vm.Setting;
+}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -79,10 +85,10 @@
             </nav><!-- .navbar -->
 
             <div class="header-social-links d-flex align-items-center">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+                <a href="#" class="twitter">@Html.Raw(setting["TwitterIcon"])</a>
+                <a href="#" class="facebook">@Html.Raw(setting["FacebookIcon"])</a>
+                <a href="#" class="instagram">@Html.Raw(setting["InstagramIcon"])</a>
+                <a href="#" class="linkedin">@Html.Raw(setting["LinkedinIcon"])</a>
             </div>
 
         </div>
@@ -97,11 +103,9 @@
                     <div class="col-lg-3 col-md-6 footer-contact">
                         <h3>Lumia</h3>
                         <p>
-                            A108 Adam Street <br>
-                            New York, NY 535022<br>
-                            United States <br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
+                            @Html.Raw(setting["Address"])
+                            <strong>Phone:</strong>@Html.Raw(setting["Phone"])<br>
+                            <strong>Email:</strong>@Html.Raw(setting["Email"])<br>
                         </p>
                     </div>
 
