@@ -1,5 +1,7 @@
 using Lumia.Data;
+using Lumia.Models;
 using Lumia.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,11 @@ builder.Services.AddDbContext<AppDbContext>(op =>
     op.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
 builder.Services.AddScoped<LayoutService>();
+builder.Services.AddIdentity<AppUser, IdentityRole>(op =>
+{
+    op.Password.RequireNonAlphanumeric = false;
+    op.User.RequireUniqueEmail = true;
+}).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

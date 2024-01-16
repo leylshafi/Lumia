@@ -168,7 +168,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
 
-                                <a class="dropdown-item" asp-route-returnUrl="https://localhost:7250/Admin/" asp-controller="Auth" asp-action="Logout">
+                                <a class="dropdown-item" asp-route-returnUrl="admin" asp-controller="Auth" asp-action="Logout">
 
                                     Logout
                                 </a>
@@ -177,7 +177,7 @@
                     }
                     else
                     {
-                        <li><a class="dropdown-item mt-2 text-primary" asp-route-returnUrl="https://localhost:7250/Admin/" asp-action="Login" asp-controller="Auth" asp-area="Admin">Login</a></li>
+                        <li><a class="dropdown-item mt-2 text-primary" asp-route-returnUrl="admin" asp-action="Login" asp-controller="Auth" asp-area="Admin">Login</a></li>
                     }
 
                 </ul>
